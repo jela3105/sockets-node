@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/jela3105/sockets-node/issues"
   },
-  "homepage": "https://github.com/jela3105/sockets-node#readme"
+  "homepage": "https://github.com/jela3105/sockets-node#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
 }
