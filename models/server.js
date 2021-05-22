@@ -12,6 +12,8 @@ class Server {
     this.middlewares();
 
     this.routes();
+
+    this.socketsEvents();
   }
 
   middlewares() {
@@ -20,6 +22,12 @@ class Server {
   }
 
   routes() {}
+
+  socketsEvents() {
+    this.io.on("connection", (socket) => {
+      console.log("Client connected");
+    });
+  }
 
   listen() {
     this.server.listen(this.port, () => {
