@@ -1,0 +1,20 @@
+{
+  "name": "web-socket-server",
+  "version": "1.0.0",
+  "description": "Example server using socket.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jela3105/sockets-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jela3105/sockets-node/issues"
+  },
+  "homepage": "https://github.com/jela3105/sockets-node#readme"
+}
