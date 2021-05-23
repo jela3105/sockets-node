@@ -20,5 +20,7 @@ socket.on("send-message", (payload) => {
 
 btnSend.addEventListener("click", () => {
   const message = txtMessage.value;
-  socket.emit("send-message", message);
+  socket.emit("send-message", message, (id) => {
+    console.log("from the server ", id);
+  });
 });
