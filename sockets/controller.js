@@ -1,10 +1,10 @@
 const TicketControl = require("../models/ticket-control");
 const ticketControl = new TicketControl();
+
 const socketController = (socket) => {
-  socket.on("send-message", (payload, callback) => {
-    const id = 123456;
-    callback(id);
-    socket.broadcast.emit("send-message", payload);
+  socket.on("next-ticket", (payload, callback) => {
+    const next = ticketControl.next();
+    callback(next);
   });
 };
 
