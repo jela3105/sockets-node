@@ -49,6 +49,19 @@ class TicketControl {
     this.saveData();
     return this.number;
   }
+  attendTicket(desktop) {
+    if (this.tickets.length === 0) {
+      return null;
+    }
+    const ticket = this.tickets.shift();
+    ticket.desktop = desktop;
+    this.lastFour.unshift(ticket);
+    if (this.lastFour.length > 4) {
+      this.lastFour.splice(-1, 1);
+    }
+    this.saveData();
+    return ticket;
+  }
 }
 
 module.exports = TicketControl;
