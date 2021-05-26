@@ -21,4 +21,8 @@ socket.on("disconnect", () => {
   btnAttent.disable = true;
 });
 
-btnAttent.addEventListener("click", () => {});
+btnAttent.addEventListener("click", () => {
+  socket.emit("attend-ticket", { desktop }, (payload) => {
+    console.log(payload);
+  });
+});
