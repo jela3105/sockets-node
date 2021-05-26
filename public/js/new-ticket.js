@@ -11,8 +11,12 @@ socket.on("disconnect", () => {
   btnCreate.disable = true;
 });
 
+socket.on("last-ticket", (last) => {
+  lblNewTicket.innerText = "Ticket: " + last;
+});
+
 btnCreate.addEventListener("click", () => {
   socket.emit("next-ticket", null, (ticket) => {
-    lblNewTicket.innerText = ticket;
+    lblNewTicket.innerText = "Ticket " + ticket;
   });
 });
