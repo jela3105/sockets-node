@@ -1,5 +1,7 @@
 const lblDesktop = document.querySelector("h1");
 const btnAttent = document.querySelector("button");
+const lblTicket = document.querySelector("small");
+const divAlert = document.querySelector(".alert");
 
 const searchParams = new URLSearchParams(window.location.search);
 
@@ -11,6 +13,7 @@ if (!searchParams.has("Desktop")) {
 const desktop = searchParams.get("Desktop");
 lblDesktop.innerText = desktop;
 
+divAlert.style.display = "none";
 const socket = io();
 
 socket.on("connect", () => {
@@ -22,7 +25,11 @@ socket.on("disconnect", () => {
 });
 
 btnAttent.addEventListener("click", () => {
-  socket.emit("attend-ticket", { desktop }, (payload) => {
-    console.log(payload);
+  socket.emit("attend-ticket", { desktop }, ({ ok, ticket, msg }) => {
+    if (!ok) {
+      lblTicket.innerText = "no ticket";
+      return (divAlert.style.display = "");
+    }
+    lblTicket.innerText = `Ticket ${ticket.number}`;
   });
 });
