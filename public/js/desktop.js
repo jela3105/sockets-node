@@ -2,6 +2,7 @@ const lblDesktop = document.querySelector("h1");
 const btnAttent = document.querySelector("button");
 const lblTicket = document.querySelector("small");
 const divAlert = document.querySelector(".alert");
+const lblPending = document.querySelector("#lblPending");
 
 const searchParams = new URLSearchParams(window.location.search);
 
@@ -22,6 +23,10 @@ socket.on("connect", () => {
 
 socket.on("disconnect", () => {
   btnAttent.disable = true;
+});
+
+socket.on("pending-tickets", (pendingTickets) => {
+  lblPending.innerText = pendingTickets;
 });
 
 btnAttent.addEventListener("click", () => {
